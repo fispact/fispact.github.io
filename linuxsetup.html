@@ -2,12 +2,12 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>FISPACT-II GitHub Pages</title>
-    <meta name="description" content="FISPACT-II GitHub page">
+    <title>Setting up FISPACT-II on Linux</title>
+    <meta name="description" content="FISPACT-II Linux Setup">
     <meta name="author" content="Thomas Stainer">
 
-		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/white.css">
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/white.css">
 
     <!-- Theme used for syntax highlighting of code -->
     <link rel="stylesheet" href="lib/css/zenburn.css">
@@ -52,48 +52,100 @@
 
       <div class="slides">
 
-        <!-- Main page -->
-        <section id="main">
-          <div>
-            <h4><a href="https://fispact.ukaea.uk">FISPACT-II main site</a></h4>
-            <p>Welcome to FISPACT-II GitHub pages</p>
-            <br />
-            <p>You will find <i><font color="red">links</font></i>, <i><font color="blue">presentations</font></i>, additional/support <i><font color="green">material</font></i>, and much more on this site.</p>
-            <p>Navigate left and right to view different pages</p>
-          </div>
+        <!-- title page -->
+        <section id="title">
+            <div>
+                <!-- <div style="text-align: left;margin-left:-20px"> -->
+                    <h4>Installation & Setup</h4>
+                    <p><i><font color="red">Linux</font></i></p>
+                <!-- </div> -->
+            </div>
         </section>
-            
-        <!-- Links page -->
-        <section id="links">
+
+        <!-- Introduction page -->
+        <!-- <section id="intro">
             <div>
                 <div style="text-align: left;margin-left:-20px">
-                    <h4>Links</h4>
                     <ul>
-                        <li><a href="https://fispact.ukaea.uk/wiki">Wiki</a> - FISPACT-II usage</li>
-                        <li><a href="https://fispact.ukaea.uk/forum">Forum</a> - Post a question</li>
-                        <li><a href="http://www.ccfe.ac.uk/FISPACT-II/documentation/UKAEA-R18001.pdf">Manual</a> - Latest manual</li>
-                        <li><a href="https://fispact.ukaea.uk/nuclear-data/downloads/">Nuclear Data</a> - Download the required libraries</li>
-                        <li><a href="https://github.com/fispact">GitHub</a> - Open source related codes</li>
-                        <li><a href="https://hub.docker.com/u/fispact">Docker</a> - Running FISPACT-II in docker</li>
+                        <li>Command line tool only</li>
+                        <li>Use via <i><b>Terminal</b></i></li>
+                        <li>Binary executable program driven via input files</li>
+                        <li>Produces output files (text, TAB and JSON formats)</li>
+                    </ul>
+                </div>
+            </div> -->
+        </section>
+
+        <!-- System page -->
+        <section id="system">
+            <div>
+                <div style="text-align: left;margin-left:-20px">
+                    <h4>Supported Systems</h4>
+                    <ul>
+                        <li><b>Ubuntu</b> (recommended) - 16.04, 17.10, 18.04</li>
+                        <li>Supports <b>Alpine</b>, <b>CentOS</b>, <b>Debian</b>, <b>OpenSUSE</b>, <b>Fedora</b>, <b>ScientificLinux</b>, and more</li>
+                        <li>Full tested and supported list <a href="https://fispact.ukaea.uk/wiki/Docker_images">here</a></li>
                     </ul>
                 </div>
             </div>
         </section>
 
-        <!-- Links page -->
-        <section id="gettingstarted">
+        <!-- Requirements page -->
+        <!-- <section id="Requirements">
             <div>
                 <div style="text-align: left;margin-left:-20px">
-                    <h4>Getting Started</h4>
+                    <h4>Requirements</h4>
                     <ul>
-                        <li><a href="linuxsetup.html">Linux</a> - Installation & setup on Linux</li>
-                        <!-- <li><a href="windowssetup.html">Windows</a> - Installation & setup on Windows</li>
-                        <li><a href="macsetup.html">Mac</a> - Installation & setup on Mac</li> -->
+                        <li>Requires various nuclear data libraries to run</li>
+                        <li>Supports <b>TENDL</b>, <b>ENDF/B</b>, <b>IRDFF</b>, <b>EAF</b> and more...</li>
+                        <li>All available for download <a href="https://fispact.ukaea.uk/nuclear-data/downloads/">here</a></li>
                     </ul>
+                    <p>Download and install <i><font color="red">cross section</font></i>, <i><font color="green">decay</font></i>, and <i><font color="blue">fission yield</font></i> libraries to perform calculations</p>
+                </div>
+            </div>
+        </section> -->
+
+        <!-- Installation page -->
+        <section id="installation">
+            <div>
+                <h4>Installation</h4>
+                <div style="text-align: center; font-size: 22px;">
+                    <p>Make an installation directory (anywhere you like)</p>
+                    <pre><code class="shell" data-trim data-noescape contenteditable>$ mkdir -p /home/user/FISPACT-II/v4.0</code></pre>
+                    <p>Locate the binary for your system from the FISPACT-II files</p>
+                    <pre><code class="shell" data-trim data-noescape contenteditable>$ ls
+bin                  getting_started      index.html           
+manual.pdf           nuclear_data         system_tests.tar.bz2
+$ ls bin/ubuntu/18.04/ifort18
+compress_xs_endf       extract_xs_endf        fispact                
+compress_xs_endf-4.0.0 extract_xs_endf-4.0.0  fispact-4.0.0
+                    </code></pre>
+                    <p>Copy the binary to a directory of your choosing (recommend <i>ifort</i>)</p>
+                    <pre><code class="shell" data-trim data-noescape contenteditable>$ cp bin/ubuntu/18.04/ifort18/* /home/user/FISPACT-II/v4.0/</code></pre>
+                    <p>Setup alias/environment variable for FISPACT-II</p>
+                    <pre><code class="shell" data-trim data-noescape contenteditable>$ export FISPACT=/home/user/FISPACT-II/v4.0/fispact</code></pre>
                 </div>
             </div>
         </section>
 
+        <!-- Installation page -->
+        <section id="installation2">
+            <div>
+                <h4>Nuclear data installation</h4>
+                <div style="text-align: center; font-size: 30px;">
+                    <p>Copy and extract nuclear data to installation directory</p>
+                    <pre><code class="shell" data-trim data-noescape contenteditable>$ mkdir -p /home/user/FISPACT-II/nuclear_data
+$ cp nuclear_data/*.tar.bz2 /home/user/FISPACT-II/nuclear_data
+$ cd /home/user/FISPACT-II/nuclear_data
+$ for file in *.tar.bz2; do tar xvjf $file; done
+$ cd -
+                    </code></pre>
+                    <p>Setup alias/environment variable for nuclear data</p>
+                    <pre><code class="shell" data-trim data-noescape contenteditable>$ export NUCLEAR_DATA=/home/user/FISPACT-II/v4.0/nuclear_data</code></pre>
+                </div>
+            </div>
+        </section>
+        
         </div> <!-- End slides -->
 
     </div> <!-- End reveal -->
