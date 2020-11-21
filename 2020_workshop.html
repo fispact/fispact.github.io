@@ -2,8 +2,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>FISPACT-II GitHub Pages</title>
-    <meta name="description" content="FISPACT-II GitHub page" />
+    <title>Getting started</title>
+    <meta name="description" content="FISPACT-II Linux Setup" />
     <meta name="author" content="Thomas Stainer" />
 
     <link rel="stylesheet" href="css/reveal.css" />
@@ -15,6 +15,18 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
     <style>
+      h1 {
+        text-transform: none !important;
+      }
+      h2 {
+        text-transform: none !important;
+      }
+      h3 {
+        text-transform: none !important;
+      }
+      h4 {
+        text-transform: none !important;
+      }
       .pdf-page {
         background: #fff;
         max-height: 727px;
@@ -49,29 +61,29 @@
       .nomargin {
         margin: 0px 0px 0px 0px !important;
       }
+
+      .reveal .slide-number {
+        left: 20px;
+        background: #ffffff00;
+        font-size: 54pt;
+        color: #011011;
+      }
     </style>
   </head>
 
   <body>
     <div class="reveal">
       <div class="slides">
-        <!-- Main page -->
-        <section id="main">
+        <!-- title page -->
+        <section id="title">
           <div>
-            <h4><a href="https://fispact.ukaea.uk">FISPACT-II main site</a></h4>
-            <p>Welcome to FISPACT-II GitHub pages</p>
-            <div style="margin-top: 60px; margin-bottom: 60px">
-              <h3>
-                <a href="2020_workshop.html">** Workshop - 2020 OECD **</a>
-              </h3>
-            </div>
-            <p>
-              You will find <i><font color="red">links</font></i
-              >, <i><font color="blue">presentations</font></i
-              >, additional/support <i><font color="green">material</font></i
-              >, and much more on this site.
-            </p>
-            <p>Navigate left and right to view different pages</p>
+            <!-- <div style="text-align: left;margin-left:-20px"> -->
+            <h3 style="margin-bottom: 150px">
+              Getting started with FISPACT-II
+            </h3>
+            <p><font color="black">Thomas Stainer</font></p>
+            <p style="font-size: 34px"><font>23rd November 2020</font></p>
+            <!-- </div> -->
           </div>
         </section>
 
@@ -79,7 +91,7 @@
         <section id="links">
           <div>
             <div style="text-align: left; margin-left: -20px">
-              <h4>Links</h4>
+              <h4>Useful links</h4>
               <ul>
                 <li>
                   <a href="https://fispact.ukaea.uk/wiki">Wiki</a> - FISPACT-II
@@ -112,26 +124,68 @@
                 </li>
               </ul>
             </div>
+            <p style="margin-top: 50px"><a href=https://fispact.ukaea.uk>https://fispact.ukaea.uk</a></p>
           </div>
         </section>
 
-        <!-- Links page -->
-        <section id="gettingstarted">
+        <!-- Introduction page -->
+        <section id="intro">
           <div>
-            <div style="text-align: left; margin-left: -20px">
-              <h4>Getting Started</h4>
+            <div style="text-align: left; margin-left: -50px; font-size: 34px">
+                <h4>What is FISPACT-II?</h4>
               <ul>
-                <li>
-                  <a href="linuxsetup.html">Linux</a> - Installation & setup on
-                  Linux
-                </li>
-                <!-- <li><a href="windowssetup.html">Windows</a> - Installation & setup on Windows</li>
-                        <li><a href="macsetup.html">Mac</a> - Installation & setup on Mac</li> -->
+                <li>Command line tool only</li>
+                <li>Works on <font color="blue">Windows</font>, <font color="orange">Linux</font> and <font color="green">Mac</font></li>
+                <li>Single binary executable program</li>
+                <li>File driven program (via <b>input files</b>)</li>
+                <li>Produces <b>output files</b> (text, TAB and JSON formats)</li>
+                <li>Human readable outputs with more structured outputs for parsing</li>
               </ul>
             </div>
+            <img data-src="./assets/basic_flow.png" height="240" width="650" align="middle" style="background:none; border:none; box-shadow:none;">
           </div>
         </section>
-      </div>
+
+        <!-- Where is the terminal page -->
+        <section id="terminal">
+            <div>
+              <div style="text-align: left; margin-left: -50px">
+                <h4>How to run FISPACT-II?</h4>
+                <ul>
+                  <li>
+                    No <font color="red"><b>GUI</b></font> (yet)
+                  </li>
+                  <li>
+                    Use via <font color="red"><b>terminal</b></font> (Linux) or <font color="blue"><b>cmd</b></font> (Windows)
+                  </li>
+                  <li>Powershell or Cygwin can be used too!</li>
+                </ul>
+              </div>
+              <img data-src="./assets/operating_system_terminal.png" height="240" width="750" align="middle" style="background:none; border:none; box-shadow:none;">
+            </div>
+          </section>
+
+        <!-- Note on OS page -->
+        <section id="operatingsystem">
+            <div>
+              <div style="text-align: left; margin-left: -50px;">
+                <h4>Be aware</h4>
+                <ul>
+                  <li>
+                    Windows uses <font color="red"><b>.exe</b></font> extension (not the case for Mac and Linux)
+                  </li>
+                  <li>
+                    Windows uses <font color="red"><b>\</b></font> not <font color="blue"><b>/</b></font> (Linux/Mac)
+                  </li>
+                  <li>Important for files file (more on that later). Linux style paths can be used on Windows</li>
+                  <li>Input and output files are independent of operating system</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+        </div>
+    </div>
       <!-- End slides -->
     </div>
     <!-- End reveal -->
@@ -173,7 +227,7 @@
         defaultTiming: 120,
 
         // Display the page number of the current slide
-        slideNumber: "",
+        slideNumber: "c",
 
         // Push each slide change to the browser history
         history: false,
