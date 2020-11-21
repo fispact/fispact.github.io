@@ -61,6 +61,10 @@
       .nomargin {
         margin: 0px 0px 0px 0px !important;
       }
+      .contentslide{
+        text-align: left; 
+        margin-left: -30px
+      }
 
       .reveal .slide-number {
         left: 20px;
@@ -78,7 +82,7 @@
         <section id="title">
           <div>
             <!-- <div style="text-align: left;margin-left:-20px"> -->
-            <h3 style="margin-bottom: 150px">
+            <h3 style="margin-bottom: 150px; color:forestgreen">
               Getting started with FISPACT-II
             </h3>
             <p><font color="black">Thomas Stainer</font></p>
@@ -131,7 +135,7 @@
         <!-- Introduction page -->
         <section id="intro">
           <div>
-            <div style="text-align: left; margin-left: -50px; font-size: 34px">
+            <div class="contentslide" style="font-size: 34px">
                 <h4>What is FISPACT-II?</h4>
               <ul>
                 <li>Command line tool only</li>
@@ -149,7 +153,7 @@
         <!-- Where is the terminal page -->
         <section id="terminal">
             <div>
-              <div style="text-align: left; margin-left: -50px">
+              <div class="contentslide">
                 <h4>How to run FISPACT-II</h4>
                 <ul>
                   <li>
@@ -168,7 +172,7 @@
         <!-- Note on OS page -->
         <section id="operatingsystem">
             <div>
-              <div style="text-align: left; margin-left: -50px;">
+              <div class="contentslide">
                 <h4>Be aware</h4>
                 <ul>
                   <li>
@@ -187,7 +191,7 @@
         <!-- Running FISPACT-II -->
         <section id="running">
             <div>
-              <div style="text-align: left; margin-left: -50px;">
+              <div class="contentslide">
                 <h4>Running FISPACT-II</h4>
                 <ul>
                   <li>
@@ -211,7 +215,7 @@
 
           <section id="running2">
             <div>
-              <div style="text-align: left; margin-left: -50px;">
+              <div class="contentslide">
                 <h4>Running FISPACT-II correctly</h4>
                 <p style="margin-top: 40px; font-size:26px">We need an input file <b><i>myinput.i</i></b> and files file <b><i>myfiles</i></b> (always!)</p>
                 <div style="text-align: center">
@@ -230,7 +234,7 @@ myinput.i       myfiles
 
           <section id="running3">
             <div>
-            <div style="text-align: left; margin-left: -50px">
+            <div class="contentslide">
               <h4>Running FISPACT-II correctly</h4>
               <div style="font-size: 30px">
                 <ul>
@@ -269,7 +273,7 @@ myinput.i       myfiles        FILES</code></pre>
 
           <section id="running4">
             <div>
-            <div style="text-align: left; margin-left: -50px">
+            <div class="contentslide">
               <h4>Creating an alias for FISPACT-II</h4>
                 <div style="text-align: center">
                     <p style="margin-top: 40px; font-size:26px">Instead of typing</p>
@@ -286,23 +290,127 @@ myinput.i       myfiles        FILES</code></pre>
             </div>
           </section>
 
-          <section id="running5">
+          <section id="poll1">
             <div>
-            <div style="text-align: left; margin-left: -50px">
+            <div class="contentslide">
                 <h4>Poll: FISPACT-II experience</h4>
                 <a href="https://www.menti.com/xkzf7f5f4m">Click here to take the poll</a>
                 <!-- <ul>
                   <li>Have you ran the system tests?</li>
                   <li>Did they all pass?</li>
                   <li>Have you ran the getting started examples?</li>
-                  <li>Have you every made an input file from scratch?</li>
-                  <li>Have you every made a files file from scratch?</li>
+                  <li>Have you ever made an input file from scratch?</li>
+                  <li>Have you ever made a files file from scratch?</li>
                 </ul> -->
               </div>
               <iframe height="400" width="700" data-src="https://www.mentimeter.com/s/d46936cfe0b08256237cea957c3bd216/9afcd3a5a6c3" data-preload></iframe>
               <!-- <div style='position: relative; padding-bottom: 56.25%; padding-top: 35px; height: 0; overflow: hidden;'><iframe sandbox='allow-scripts allow-same-origin allow-presentation' allowfullscreen='true' allowtransparency='true' frameborder='0' height='315' src='https://www.mentimeter.com/embed/d46936cfe0b08256237cea957c3bd216/9afcd3a5a6c3' style='position: absolute; top: 0; left: 0; width: 100%; height: 100%;' width='420'></iframe></div> -->
             </div>
           </section>
+
+          <section id="filesfile">
+            <div>
+            <div class="contentslide">
+                <h4>Files file</h4>
+                <ul>
+                    <li>We will see later how to make these files from scratch</li>
+                    <li>But first let's learn more about the <b>files file</b></li>
+                    <li><font color="blue">Why do we need it?</font></li>
+                    <li><font color="green">What does it do?</font></li>
+                    <li><font color="orange">What do we need to put in it?</font></li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <section id="filesfile2">
+            <div>
+            <div class="contentslide">
+                <h4>Files file</h4>
+                <div style="text-align: center;margin-top: 100px;">
+                <p><i>The files file declares the nuclear data libraries to be used in the fispact run*</i></p>
+                <p style="font-size: 32px;margin-bottom: 60px;">(*mainly -it also tells FISPACT-II the names and locations of files to read and write)</p>
+                <p><font color="red">FISPACT-II is useless without nuclear data!</font></p>
+            </div>
+            </div>
+          </section>
+
+          <section id="filesfile2">
+            <div>
+            <div class="contentslide">
+                <h4>Files file</h4>
+                <ul>
+                    <li>A text file</li>
+                    <li>With a list of keys and values</li>
+                    <li>Typically named 'files', 'Files' or 'FILES'</li>
+                    <li>But can be named anything e.g. files.tendl2015.run1</li>
+                    <li><font color="green">Order of paths does not matter</font></li>
+                    <li>Use linux style '/' for paths</li>
+                    <li><font color="red">Don’t use tab to indent</font> – causes parsing problems!</li>
+                </ul>
+            </div>
+          </section>
+
+          <section id="filesfile3">
+            <div>
+            <div class="contentslide">
+                <h4>Files file</h4>
+                <p>Nuclear data paths...</p>
+                <pre><code class="bash" data-trim data-noescape contenteditable># index of nuclides to be included
+ind_nuc /home/F-II/nuclear_data/TENDL2015data/tendl15_decay12_index
+
+# Library cross section data
+xs_endf /home/F-II/nuclear_data/TENDL2015data/tal2015-n/gxs-709
+
+# Library decay data
+dk_endf /home/F-II/nuclear_data/decay/decay_2012</code></pre>
+            </div>
+          </section>
+
+          <section id="filesfile4">
+            <div>
+            <div class="contentslide">
+                <h4>Files file</h4>
+                <p>Other data paths...</p>
+                <pre><code class="bash" data-trim data-noescape contenteditable># fluxes file to be read in
+fluxes fluxes
+
+# collapsed cross section data (in and out)
+collapxi COLLAPX
+collapxo COLLAPX
+
+# condensed decay and fission
+arrayx ARRAYX</code></pre>
+            </div>
+          </section>
+
+          <section id="filesfile5">
+            <div>
+            <div class="contentslide">
+                <h4>Files file</h4>
+                <ul>
+                    <li>Normally use about <b>12 - 16</b> key-value pairs needed</li>
+                    <li>Over 40 possible options</li>
+                    <li>See advanced usage for details on the others</li>
+                    <li>In most examples here, we will use no more than 16.</li>
+                </ul>
+            </div>
+          </section>
+
+          <section id="nucleardata1">
+            <div>
+            <div class="contentslide">
+                <h4>Nuclear data</h4>
+                <ul>
+                    <li>FISPACT-II can process a lot of different nuclear data libraries</li>
+                    <li>Can process both <b>ENDF-6</b> format and <b>EAF</b> format libraries</li>
+                    <li>A large number are shipped with version 4.0 already</li>
+                    <li>FISPACT-II uses group wise data, not point wise</li>
+                </ul>
+                <p style="font-size: 24px; color: red; text-align: center;">Disclamer: FISPACT-II does not hold responsibility for nuclear data errors/issues, it is simply a consumer of nuclear data</p>
+            </div>
+          </section>
+
 
         </div>
     </div>
