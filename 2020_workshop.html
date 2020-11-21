@@ -150,7 +150,7 @@
         <section id="terminal">
             <div>
               <div style="text-align: left; margin-left: -50px">
-                <h4>How to run FISPACT-II?</h4>
+                <h4>How to run FISPACT-II</h4>
                 <ul>
                   <li>
                     No <font color="red"><b>GUI</b></font> (yet)
@@ -181,6 +181,126 @@
                   <li>Input and output files are independent of operating system</li>
                 </ul>
               </div>
+            </div>
+          </section>
+
+        <!-- Running FISPACT-II -->
+        <section id="running">
+            <div>
+              <div style="text-align: left; margin-left: -50px;">
+                <h4>Running FISPACT-II</h4>
+                <ul>
+                  <li>
+                    Requires input files as arguments
+                  </li>
+                  <li>
+                    Will not run without an input
+                  </li>
+                </ul>
+                <p style="margin-top: 40px; font-size:26px">Mac/Linux</p>
+                <div style="text-align: center">
+                    <pre><code class="bash" data-trim data-noescape contenteditable>[tom@mac:~/Dev/fispact]$ /path/to/fispact # gives an error</code></pre>
+                </div>
+                <p style="margin-top: 40px; font-size:26px">Windows</p>
+                <div style="text-align: center">
+                    <pre><code class="bash" data-trim data-noescape contenteditable>C:\Dev\fispact> C:\path\to\fispact.exe # gives an error</code></pre>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section id="running2">
+            <div>
+              <div style="text-align: left; margin-left: -50px;">
+                <h4>Running FISPACT-II correctly</h4>
+                <p style="margin-top: 40px; font-size:26px">We need an input file <b><i>myinput.i</i></b> and files file <b><i>myfiles</i></b> (always!)</p>
+                <div style="text-align: center">
+                    <pre><code class="bash" data-trim data-noescape contenteditable>[tom@mac:~/Dev/fispact]$ /path/to/fispact myinput myfiles
+Running....
+                    </code></pre>
+                    <p style="margin-top: 40px; font-size:26px">Note that <b><i>.i</i></b> is needed for the input file name extension <b>but</b> is omitted from cmd line</p>
+                    <pre><code class="bash" data-trim data-noescape contenteditable>[tom@mac:~/Dev/fispact]$ ls
+myinput.i       myfiles
+[tom@mac:~/Dev/fispact]$ /path/to/fispact myinput myfiles
+                    </code></pre>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section id="running3">
+            <div>
+            <div style="text-align: left; margin-left: -50px">
+              <h4>Running FISPACT-II correctly</h4>
+              <div style="font-size: 30px">
+                <ul>
+                  <li>
+                    First argument is the input file <b><i>myinput.i</i></b>
+                  </li>
+                  <li>
+                    Second argument is the files file <b><i>filesfile</i></b> (optional)
+                  </li>
+                  <li>
+                    Input file must have <i>.i</i> extension
+                  </li>
+                  <li>
+                    Files file can have extension (if you want) but normally doesn't
+                  </li>
+                  <li>
+                    Files file argument can be omitted <b>iff</b> it is named <i>'files'</i>, <i>'Files'</i>, or <i>'FILES'</i>
+                  </li>
+                </ul>
+            </div>
+                <div style="text-align: center">
+                    <p style="margin-top: 40px; font-size:26px">Note that <b><i>.i</i></b> is needed for the input file name extension <b>but</b> is omitted from cmd line</p>
+                    <pre><code class="bash" data-trim data-noescape contenteditable>[tom@mac:~/Dev/fispact]$ ls
+myinput.i       myfiles        FILES</code></pre>
+<pre><code class="bash" data-trim data-noescape contenteditable>
+# uses myfiles file
+[tom@mac:~/Dev/fispact]$ /path/to/fispact myinput myfiles </code></pre>
+<pre><code class="bash" data-trim data-noescape contenteditable>
+# uses FILES file
+[tom@mac:~/Dev/fispact]$ /path/to/fispact myinput         
+                    </code></pre>
+                </div>
+            </div>
+            </div>
+          </section>
+
+          <section id="running4">
+            <div>
+            <div style="text-align: left; margin-left: -50px">
+              <h4>Creating an alias for FISPACT-II</h4>
+                <div style="text-align: center">
+                    <p style="margin-top: 40px; font-size:26px">Instead of typing</p>
+                    <pre><code class="bash" data-trim data-noescape contenteditable>/path/to/fispact</code></pre>
+                    <p style="margin-top: 40px; font-size:26px">Easier to make an alias</p>
+                    <p style="margin-left: 40px; font-size:22px; text-align: left">Mac/Linux</p>
+                    <pre><code class="bash" data-trim data-noescape contenteditable>[tom@mac:~/Dev/fispact]$ export FISPACT=/path/to/fispact</code></pre>
+                    <pre><code class="bash" data-trim data-noescape contenteditable>[tom@mac:~/Dev/fispact]$ $FISPACT myinput myfiles</code></pre>
+                    <p style="margin-left: 40px; font-size:22px; text-align: left">Windows</p>
+                    <pre><code class="bash" data-trim data-noescape contenteditable>C:\Dev\fispact> set FISPACT=C:\path\to\fispact.exe</code></pre>
+                    <pre><code class="bash" data-trim data-noescape contenteditable>C:\Dev\fispact> %FISPACT% myinput myfiles</code></pre>
+                </div>
+            </div>
+            </div>
+          </section>
+
+          <section id="running5">
+            <div>
+            <div style="text-align: left; margin-left: -50px">
+                <h4>Poll: FISPACT-II experience</h4>
+                <a href="https://www.menti.com/xkzf7f5f4m">Click here to take the poll</a>
+                <!-- <ul>
+                  <li>Have you ran the system tests?</li>
+                  <li>Did they all pass?</li>
+                  <li>Have you ran the getting started examples?</li>
+                  <li>Have you every made an input file from scratch?</li>
+                  <li>Have you every made a files file from scratch?</li>
+                </ul> -->
+              </div>
+              <iframe height="400" width="700" data-src="https://www.mentimeter.com/s/d46936cfe0b08256237cea957c3bd216/9afcd3a5a6c3" data-preload></iframe>
+              <!-- <div style='position: relative; padding-bottom: 56.25%; padding-top: 35px; height: 0; overflow: hidden;'><iframe sandbox='allow-scripts allow-same-origin allow-presentation' allowfullscreen='true' allowtransparency='true' frameborder='0' height='315' src='https://www.mentimeter.com/embed/d46936cfe0b08256237cea957c3bd216/9afcd3a5a6c3' style='position: absolute; top: 0; left: 0; width: 100%; height: 100%;' width='420'></iframe></div> -->
             </div>
           </section>
 
