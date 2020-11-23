@@ -520,6 +520,14 @@ arrayx ARRAYX</code></pre>
           </div>
           </section>
 
+          <section id="fluxesfile2">
+            <div class="contentslide">
+              <h4>Fluxes file</h4>
+              <img data-src="./assets/groupconvertflux2.png" height="350" width="450" align="middle" style="background:none; border:none; box-shadow:none;">   
+              <img data-src="./assets/groupconvertflux.png" height="350" width="450" align="middle" style="background:none; border:none; box-shadow:none;">   
+            </div>
+          </section>
+
           <section id="groupstructure">
             <div class="contentslide">
               <p style="margin-top: 60px; margin-bottom: -10px; font-size: 28px;color:red">group 616</p>
@@ -540,7 +548,344 @@ arrayx ARRAYX</code></pre>
           <img data-src="./assets/groupstructures.png" height="450" width="650" align="middle" style="background:none; border:none; box-shadow:none;">  
           </section>
 
-        </div>
+          <section id="inputfile">
+              <div class="contentslide">
+                  <h4>Input file</h4>
+                  <p style="font-size: 32px;">The input file governs everything for the run</p>
+                  <ul style="font-size: 30px">
+                      <li>Material definition</li>
+                      <li>Irradiation schedule</li>
+                      <li>Log options</li>
+                      <li>Uncertainties</li>
+                      <li>Solver settings</li>
+                      <li>Self shielding</li>
+                      <li>Pathways</li>
+                      <li>Output types – TAB, JSON, graph files</li>
+                </ul>    
+              </div>
+            </section>
+  
+            <section id="inputfile2">
+                <div class="contentslide">
+                    <h4>Input file</h4>
+                    <ul>
+                        <li>A text file</li>
+                        <li>List of keywords and arguments</li>
+                        <li>No default name, unlike the files file</li>
+                        <li>Input file must have <font color='red'>.i</font> extension</li>
+                        <li><font color="green">Order of paths does matter</font> (unlike files file)</li>
+                        <li>Allows comments with ‘<< comment here >>’</li>
+                        <li>Note: <b>There is a limit of 120 characters per line!</b></li>
+                        <li><font color="blue">92 keywords in all!</font></li>
+                    </ul>
+                </div>
+              </section>
+
+              <section id="inputfile3">
+                  <div class="contentslide">
+                      <h4>Input file</h4>
+                      <p style="font-size: 28px">3 sections to the input file</p>
+                      <ul>
+                          <li><font color="red">Control</font> - 32 possible keywords</li>
+                          <li><font color="orange">Initialisation</font> - 64 possible keywords</li>
+                          <li><font color="green">Inventory</font> - 41 possible keywords</li>
+                      </ul>
+                      <p style="font-size: 32px">32 + 64 + 41 ≠ 92</p>
+                      <p style="font-size: 32px">Many keywords can be used in each input section,
+                          but some can only be used in one section!
+                      </p>
+                      <p style="font-size: 24px">Full list: <a href="https://fispact.ukaea.uk/wiki/FISPACT-II_keywords">https://fispact.ukaea.uk/wiki/FISPACT-II_keywords</a></p>
+                  </div>
+                </section>
+
+                <section id="inputfile4">
+                    <div class="contentslide">
+                        <h4>Simple example</h4>
+                        <pre><code class="html" data-trim data-noescape contenteditable><< CLOBBER tells fispact to overwrite >>
+<< existing files of same name >>
+CLOBBER
+<< GETXS 1 tells fispact to get the cross section>>
+<< data and do collapse >>
+GETXS 1 709
+<< GETDECAY 1 tells fispact to get the decay>>
+<< data and do condense >>
+GETDECAY 1
+<< FISPACT signals end of control section >>
+FISPACT
+* example 1
+<< END is required to signal end of input >>
+END
+* end of example
+                          </code></pre>
+                          <p style="font-size: 26px">Control only - no Initialisation or inventory sections here</p>
+                    </div>
+                  </section>
+
+                  <section id="collapse">
+                      <div class="contentslide">
+                          <h4>Collapse</h4>
+                          <p style="font-size: 36px">The nuclear data collapse with GETXS takes the extensive reaction cross section data 
+                            and probability tables for resonance self-shielding and folds (collapses) them
+                              with irradiation spectrum in fluxes. Producing a single scalar value (1-group).
+                              </p>
+                      </div>
+                    </section>
+
+                    <section id="collapse2">
+                        <div class="contentslide">
+                            <h4>Collapse</h4>
+                            <p style="font-size: 28px">Produces a binary COLLAPX file of 1-group data with uncertainties 
+                              which is given by the <b><i>collapxo</i></b> file in the files file</p>
+
+  \[\begin{aligned}
+  \bar{\sigma} &amp; = \frac{\sum^{N}_{i}\sigma_{i}\phi_{i}}{\sum^{N}_{i}\phi_{i}}
+  \end{aligned} \]
+                        </div>
+                      </section>
+
+              <section id="printlib1">
+                  <div class="contentslide">
+                      <h4>Exercise: printlib</h4>
+                      <div style="font-size: 24px">
+                        <p>Printlib 4 prints all collapsed cross sections to disk</p>
+                        <p>The cross sections are given for each reaction</p>
+                        <p>See the exercise on this.</p>
+                      </div>
+                  </div>
+                  <img data-src="./assets/printlib.png" height="450" width="600" align="middle" style="background:none; border:none; box-shadow:none;">
+                </section>
+
+                <section id="printlib2">
+                    <div class="contentslide">
+                        <h4>Exercise: printlib</h4>
+                        <div style="font-size: 24px">
+                          <p>Can actually calculate this by hand</p>
+                          <p>Getting the group wise XS data can be done using another tool with FISPACT-II <font color="orange">extract_xs_endf</font> </p>
+                        </div>
+                    </div>
+                    <img data-src="./assets/printlib2.png" height="450" width="700" align="middle" style="background:none; border:none; box-shadow:none;">
+                  </section>
+
+                          <section id="collapseandcondense">
+                              <div class="contentslide">
+                                  <h4>Collapse and condense</h4>
+                                  <div style="font-size: 32px">
+                                    <p>Common practice is to separate out collapse and condense.
+                                    <p><font color="blue">collapse.i</font> input file – GETXS 1 <group></p>
+                                    <p><font color="green">condese.i</font> input file – GETDECAY 1</p>
+                                    <p>Computationally expensive to do these processes.
+                                        If flux is not changing, then no need to redo collapse.
+                                        We just did the collapse in the previous example.
+                                        </p>
+                                  </div>
+                              </div>
+                              <pre><code class="bash" data-trim data-noescape contenteditable>[tom@mac:~/exercises/basic/inventory]$ $FISPACT collapse
+[tom@mac:~/exercises/basic/inventory]$ $FISPACT condense
+[tom@mac:~/exercises/basic/inventory]$ $FISPACT input1
+[tom@mac:~/exercises/basic/inventory]$ $FISPACT input2                                  
+                                </code></pre>
+                            
+                            </section>
+  
+            <section id="condense">
+                <div class="contentslide">
+                    <h4>Condense</h4>
+                    <p style="font-size: 36px">The nuclear data condense via GETDECAY produces 
+                      a binary ARRAYX file from the extensive decay and fission yield data</p>
+                      <p style="font-size: 32px">May also require an irradiation spectrum (fluxes)
+                          to calculate spectrum-dependent fission yields
+                          but is not normally the case
+                          </p>
+                </div>
+              </section>
+
+              <section id="collapsesummary">
+                  <div class="contentslide">
+                      <h4>Collapse summary</h4>
+                  </div>
+                  <img data-src="./assets/collapse.png" height="450" width="800" align="middle" style="background:none; border:none; box-shadow:none;">
+                </section>
+
+                <section id="collapsesummary">
+                    <div class="contentslide">
+                        <h4>Condense summary</h4>
+                    </div>
+                    <img data-src="./assets/collapse.png" height="450" width="800" align="middle" style="background:none; border:none; box-shadow:none;">
+                  </section>
+                  
+                  <section id="inventorysummary">
+                      <div class="contentslide">
+                          <h4>Inventory summary</h4>
+                      </div>
+                      <img data-src="./assets/inventory.png" height="450" width="800" align="middle" style="background:none; border:none; box-shadow:none;">
+                    </section>
+  
+            <section id="introsummary">
+                <div class="contentslide">
+                    <h4>Summary so far</h4>
+                    <ul style="font-size: 30px">
+                        <li>What FISPACT-II is</li>
+                        <li>Some of what FISPACT-II can do</li>
+                        <li>What files FISPACT-II needs</li>
+                        <ul style="font-size: 26px">
+                          <li>Files file</li>
+                          <li>Fluxes file</li>
+                          <li>Input file</li>
+                        </ul>
+                        <li>How to run FISPACT-II</li>
+                      </ul>    
+                      <p style="font-size: 32px">In the basic exercises we will use the fluxes and nuclear data to 
+                        calculate all of the effective cross sections and prepare the decay data for time-dependent simulations.
+                        </p>
+                        <p style="font-size: 32px">However, all of this is not very interesting. No actual irradiation yet.</p>
+                </div>
+              </section>
+              
+              <section id="workedexample">
+                  <div class="contentslide">
+                      <h4>Worked example</h4>
+                      <p>FNS Inconel (from getting started)</p>
+                      <p>Contains 4 input files</p>
+                      <ul>
+                          <li>collapse.i</li>
+                          <li>condense.i</li>
+                          <li>printlib.i</li>
+                          <li><font color="green">inventory.i</font></li>
+                      </ul>
+                      <p>First 3 have been covered, focus on the inventory run</p>
+                  </div>
+                </section>
+              
+                <section id="workedexample">
+                    <div class="contentslide">
+                        <h4>Worked example - control</h4>
+                    </div>
+                    <pre><code class="html" data-trim data-noescape contenteditable><< Overwrite any existing output file >>
+CLOBBER
+<< we also want a JSON output file >>
+JSON
+<< read in COLLAPX file>>
+GETXS 0
+<< read in ARRAYX file>>
+GETDECAY 0
+<< end of control section >>
+FISPACT
+* FNS 5 Minutes Inconel-600                                                
+                      </code></pre>
+                  </section>
+              
+                  <section id="workedexample2">
+                      <div class="contentslide">
+                          <h4>Worked example - initial conditions I</h4>
+                      </div>
+                      <pre><code class="html" data-trim data-noescape contenteditable><< Inconel 600 with density of 8.42 g/cc >>
+DENSITY 8.42
+<< 1 gram  with 4 elements >>
+MASS 1.0E-3 4
+<< 75.82% Ni >> 
+NI  75.82
+<< 15.97% Cr >>
+CR  15.97
+<< 7.82% Fe >>
+FE   7.82
+<< 0.39% Mn >> 
+MN   0.39</code></pre>
+                    </section>
+              
+                    <section id="workedexample3">
+                        <div class="contentslide">
+                            <h4>Worked example - initial conditions II</h4>
+                        </div>
+                        <pre><code class="html" data-trim data-noescape contenteditable><< ignore nuclides with inventory < 1000 atoms >>
+MIND 1E3
+<< create gnuplot data and file >>
+GRAPH 1 2 1 3
+<< pathways analysis >>
+UNCERTAINTY 2
+<< output half lives >>
+HALF 
+<< output ingestion and inhalation >>
+HAZARDS</code></pre>
+                      </section>
+              
+                      <section id="workedexample4">
+                          <div class="contentslide">
+                              <h4>Worked example - irradiation phase</h4>
+                          </div>
+                          <pre><code class="html" data-trim data-noescape contenteditable><< irradiate material at 1.116e10 n/cm2/s >>
+FLUX 1.116E+10
+<< initial inventory (t=0) >>
+ATOMS
+<< want output after 5 minutes irradiation >>
+TIME 5.0 MINS
+<< solves rate equation matrix and >>
+<< outputs initial inventory at time=5 mins>>
+ATOMS
+</code></pre>
+<p style="font-size: 28px">Note: Without either ATOMS, STEP, or SPECTRUM, nothing will be calculated!
+    For less verbose output, use STEP, instead of ATOMS. 
+    </p>
+                        </section>
+
+                        <section id="workedexample5">
+                            <div class="contentslide">
+                                <h4>Worked example - cooling phase</h4>
+                                <p style="font-size: 32px"></p>
+                            </div>
+                            <pre><code class="html" data-trim data-noescape contenteditable><< turn flux off - decay only >>
+FLUX 0.
+<< tells FISPACT-II we are cooling >>
+ZERO
+<< cooling time intervals >> 
+<< 38 seconds after irradiation ended >> 
+TIME    36 ATOMS
+<< 15 seconds after previous time >> 
+TIME    15 ATOMS
+<< 16 seconds after previous time >> 
+TIME    16 ATOMS
+...
+<< end of input file >> 
+END
+* END</code></pre>
+                    <p style="font-size: 28px">Note: Times are <b>intervals</b>. It is time difference not cumulative time</p>
+                  </section>
+
+                  <section id="workedexample6">
+                      <div class="contentslide">
+                          <h4>Worked example - graph outputs</h4>
+                      </div>
+                      <img data-src="./assets/inconel1.png" height="400" width="450" align="middle" style="background:none; border:none; box-shadow:none;">
+                      <img data-src="./assets/inconel2.png" height="400" width="450" align="middle" style="background:none; border:none; box-shadow:none;">
+                    </section>
+
+            <section id="workedexamplesummary">
+                <div class="contentslide">
+                    <h4>Worked example summary</h4>
+                    <div  style="font-size: 32px">
+                    <p>Able to irradiate a material and generate graphs</p>
+                    <p>But what if we want custom graphs?</p>
+                    <ul>
+                        <li>Generated graphs and plots are good, but limited</li>
+                        <li>We can look and copy values from the output file, but difficult for big simulations</li>
+                        <li>Output file can be tricky to parse</li>
+                        <li>Other output files – TAB and JSON to help file reading issues</li>
+                        <li>FISPACT-II official parser - pypact</li>
+                    </ul>
+                  </div>
+                </div>
+              </section>
+
+              <section id="pypact">
+                  <div class="contentslide">
+                      <h4>Pypact</h4>
+                      <div style="font-size: 32px">
+                      <p>Can make parsing legacy FISPACT-II files easy - python3 package</p>
+                      <img data-src="./assets/gs_animation.gif" height="300" width="400" align="middle" style="background:none; border:none; box-shadow:none;">
+                      <img data-src="./assets/periodictableanimation.gif" height="300" width="550" align="middle" style="background:none; border:none; box-shadow:none;">
+                  </div>
+                </section>
+
+      </div>
     </div>
       <!-- End slides -->
     </div>
