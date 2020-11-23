@@ -116,10 +116,10 @@
         </section>
 
         <!-- Links page -->
-        <section id="gettingstarted">
+        <section id="setup">
           <div>
             <div style="text-align: left; margin-left: -20px">
-              <h4>Getting Started</h4>
+              <h4>Setup</h4>
               <ul>
                 <li>
                   <a href="linuxsetup.html">Linux</a> - Installation & setup on
@@ -271,32 +271,32 @@
         math: {
           mathjax:
             "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js",
-          config: "TeX-AMS_HTML-full", // See http://docs.mathjax.org/en/latest/config-files.html
+          config: "TeX-AMS_HTML-full" // See http://docs.mathjax.org/en/latest/config-files.html
         },
 
         // More info https://github.com/hakimel/reveal.js#dependencies
         dependencies: [
           {
             src: "plugin/markdown/marked.js",
-            condition: function () {
+            condition: function() {
               return !!document.querySelector("[data-markdown]");
-            },
+            }
           },
           {
             src: "plugin/markdown/markdown.js",
-            condition: function () {
+            condition: function() {
               return !!document.querySelector("[data-markdown]");
-            },
+            }
           },
           {
             src: "plugin/highlight/highlight.js",
             async: true,
-            callback: function () {
+            callback: function() {
               hljs.initHighlightingOnLoad();
-            },
+            }
           },
-          { src: "plugin/math/math.js", async: true },
-        ],
+          { src: "plugin/math/math.js", async: true }
+        ]
       });
     </script>
   </body>

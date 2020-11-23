@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Getting started</title>
+    <meta name="description" content="FISPACT-II Linux Setup" />
+    <meta name="author" content="Thomas Stainer" />
+
+    <link rel="stylesheet" href="../../css/reveal.css" />
+    <link rel="stylesheet" href="../../css/theme/white.css" />
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="../../lib/css/zenburn.css" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <style>
+      h1 {
+        text-transform: none !important;
+      }
+      h2 {
+        text-transform: none !important;
+      }
+      h3 {
+        text-transform: none !important;
+      }
+      h4 {
+        text-transform: none !important;
+      }
+      .pdf-page {
+        background: #fff;
+        max-height: 727px;
+      }
+      body
+        > div.reveal.slide.center.has-vertical-slides.has-horizontal-slides.ready
+        > div.slides
+        > section:nth-child(n)
+        > div:nth-child(1)
+        > section {
+        top: 14px !important;
+      }
+      .topright {
+        position: relative;
+      }
+      .topright img {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+      }
+      .bottomleft {
+        position: relative;
+      }
+      .bottomleft img {
+        position: fixed;
+        width: 135% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        bottom: -35px;
+        left: -155px;
+      }
+      .nomargin {
+        margin: 0px 0px 0px 0px !important;
+      }
+      .contentslide{
+        text-align: left; 
+        margin-left: -20px
+      }
+
+      .reveal .slide-number {
+        left: 20px;
+        background: #ffffff00;
+        font-size: 54pt;
+        color: #011011;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <!-- title page -->
+        <section id="title">
+          <div>
+            <!-- <div style="text-align: left;margin-left:-20px"> -->
+            <h3 style="margin-bottom: 150px; color:forestgreen">
+              Getting started with FISPACT-II
+            </h3>
+            <p><font color="black">Thomas Stainer</font></p>
+            <p style="font-size: 34px"><font>23rd November 2020</font></p>
+            <!-- </div> -->
+          </div>
+        </section>
+
+        <!-- Links page -->
+        <section id="links">
+          <div>
+            <div style="text-align: left; margin-left: -20px">
+              <h4>Useful links</h4>
+              <ul>
+                <li>
+                  <a href="https://fispact.ukaea.uk/wiki">Wiki</a> - FISPACT-II
+                  usage
+                </li>
+                <li>
+                  <a href="https://fispact.ukaea.uk/forum">Forum</a> - Post a
+                  question
+                </li>
+                <li>
+                  <a
+                    href="http://www.ccfe.ac.uk/FISPACT-II/documentation/UKAEA-R18001.pdf"
+                    >Manual</a
+                  >
+                  - Latest manual
+                </li>
+                <li>
+                  <a href="https://fispact.ukaea.uk/nuclear-data/downloads/"
+                    >Nuclear Data</a
+                  >
+                  - Download the required libraries
+                </li>
+                <li>
+                  <a href="https://github.com/fispact">GitHub</a> - Open source
+                  related codes
+                </li>
+                <li>
+                  <a href="https://hub.docker.com/u/fispact">Docker</a> -
+                  Running FISPACT-II in docker
+                </li>
+              </ul>
+            </div>
+            <p style="margin-top: 50px"><a href=https://fispact.ukaea.uk>https://fispact.ukaea.uk</a></p>
+          </div>
+        </section>
+
+        <!-- Introduction page -->
+        <section id="intro">
+          <div>
+            <div class="contentslide" style="font-size: 34px">
+                <h4>What is FISPACT-II?</h4>
+              <ul>
+                <li>Command line tool only</li>
+                <li>Works on <font color="blue">Windows</font>, <font color="orange">Linux</font> and <font color="green">Mac</font></li>
+                <li>Single binary executable program</li>
+                <li>File driven program (via <b>input files</b>)</li>
+                <li>Produces <b>output files</b> (text, TAB and JSON formats)</li>
+                <li>Human readable outputs with more structured outputs for parsing</li>
+              </ul>
+            </div>
+            <img data-src="../../assets/basic_flow.png" height="240" width="650" align="middle" style="background:none; border:none; box-shadow:none;">
+          </div>
+        </section>
+
+        <!-- Where is the terminal page -->
+        <section id="terminal">
+            <div>
+              <div class="contentslide">
+                <h4>How to run FISPACT-II</h4>
+                <ul>
+                  <li>
+                    No <font color="red"><b>GUI</b></font> (yet)
+                  </li>
+                  <li>
+                    Use via <font color="red"><b>terminal</b></font> (Linux) or <font color="blue"><b>cmd</b></font> (Windows)
+                  </li>
+                  <li>Powershell or Cygwin can be used too!</li>
+                </ul>
+              </div>
+              <img data-src="../../assets/operating_system_terminal.png" height="240" width="750" align="middle" style="background:none; border:none; box-shadow:none;">
+            </div>
+          </section>
+
+        <!-- Note on OS page -->
+        <section id="operatingsystem">
+            <div>
+              <div class="contentslide">
+                <h4>Be aware</h4>
+                <ul>
+                  <li>
+                    Windows uses <font color="red"><b>.exe</b></font> extension (not the case for Mac and Linux)
+                  </li>
+                  <li>
+                    Windows uses <font color="red"><b>\</b></font> not <font color="blue"><b>/</b></font> (Linux/Mac)
+                  </li>
+                  <li>Important for files file (more on that later). Linux style paths can be used on Windows</li>
+                  <li>Input and output files are independent of operating system</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+        <!-- Running FISPACT-II -->
+        <section id="running">
+            <div>
+              <div class="contentslide">
+                <h4>Running FISPACT-II</h4>
+                <ul>
+                  <li>
+                    Requires input files as arguments
+                  </li>
+                  <li>
+                    Will not run without an input
+                  </li>
+                </ul>
+                <p style="margin-top: 40px; font-size:26px">Mac/Linux</p>
+                <div style="text-align: center">
+                    <pre><code class="bash" data-trim data-noescape contenteditable>[tom@mac:~/Dev/fispact]$ /path/to/fispact # gives an error</code></pre>
+                </div>
+                <p style="margin-top: 40px; font-size:26px">Windows</p>
+                <div style="text-align: center">
+                    <pre><code class="bash" data-trim data-noescape contenteditable>C:\Dev\fispact> C:\path\to\fispact.exe # gives an error</code></pre>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section id="running2">
+            <div>
+              <div class="contentslide">
+                <h4>Running FISPACT-II correctly</h4>
+                <p style="margin-top: 40px; font-size:26px">We need an input file <b><i>myinput.i</i></b> and files file <b><i>myfiles</i></b> (always!)</p>
+                <div style="text-align: center">
+                    <pre><code class="bash" data-trim data-noescape contenteditable>[tom@mac:~/Dev/fispact]$ /path/to/fispact myinput myfiles
+Running....
+                    </code></pre>
+                    <p style="margin-top: 40px; font-size:26px">Note that <b><i>.i</i></b> is needed for the input file name extension <b>but</b> is omitted from cmd line</p>
+                    <pre><code class="bash" data-trim data-noescape contenteditable>[tom@mac:~/Dev/fispact]$ ls
+myinput.i       myfiles
+[tom@mac:~/Dev/fispact]$ /path/to/fispact myinput myfiles
+                    </code></pre>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section id="running3">
+            <div>
+            <div class="contentslide">
+              <h4>Running FISPACT-II correctly</h4>
+              <div style="font-size: 30px">
+                <ul>
+                  <li>
+                    First argument is the input file <b><i>myinput.i</i></b>
+                  </li>
+                  <li>
+                    Second argument is the files file <b><i>filesfile</i></b> (optional)
+                  </li>
+                  <li>
+                    Input file must have <i>.i</i> extension
+                  </li>
+                  <li>
+                    Files file can have extension (if you want) but normally doesn't
+                  </li>
+                  <li>
+                    Files file argument can be omitted <b>iff</b> it is named <i>'files'</i>, <i>'Files'</i>, or <i>'FILES'</i>
+                  </li>
+                </ul>
+            </div>
+                <div style="text-align: center">
+                    <p style="margin-top: 40px; font-size:26px">Note that <b><i>.i</i></b> is needed for the input file name extension <b>but</b> is omitted from cmd line</p>
+                    <pre><code class="bash" data-trim data-noescape contenteditable>[tom@mac:~/Dev/fispact]$ ls
+myinput.i       myfiles        FILES</code></pre>
+<pre><code class="bash" data-trim data-noescape contenteditable>
+# uses myfiles file
+[tom@mac:~/Dev/fispact]$ /path/to/fispact myinput myfiles </code></pre>
+<pre><code class="bash" data-trim data-noescape contenteditable>
+# uses FILES file
+[tom@mac:~/Dev/fispact]$ /path/to/fispact myinput         
+                    </code></pre>
+                </div>
+            </div>
+            </div>
+          </section>
+
+          <section id="running4">
+            <div>
+            <div class="contentslide">
+              <h4>Creating an alias for FISPACT-II</h4>
+                <div style="text-align: center">
+                    <p style="margin-top: 40px; font-size:26px">Instead of typing</p>
+                    <pre><code class="bash" data-trim data-noescape contenteditable>/path/to/fispact</code></pre>
+                    <p style="margin-top: 40px; font-size:26px">Easier to make an alias</p>
+                    <p style="margin-left: 40px; font-size:22px; text-align: left">Mac/Linux</p>
+                    <pre><code class="bash" data-trim data-noescape contenteditable>[tom@mac:~/Dev/fispact]$ export FISPACT=/path/to/fispact</code></pre>
+                    <pre><code class="bash" data-trim data-noescape contenteditable>[tom@mac:~/Dev/fispact]$ $FISPACT myinput myfiles</code></pre>
+                    <p style="margin-left: 40px; font-size:22px; text-align: left">Windows</p>
+                    <pre><code class="bash" data-trim data-noescape contenteditable>C:\Dev\fispact> set FISPACT=C:\path\to\fispact.exe</code></pre>
+                    <pre><code class="bash" data-trim data-noescape contenteditable>C:\Dev\fispact> %FISPACT% myinput myfiles</code></pre>
+                </div>
+            </div>
+            </div>
+          </section>
+
+          <section id="poll1">
+            <div>
+            <div class="contentslide">
+                <h4>Poll: FISPACT-II experience</h4>
+                <a href="https://www.menti.com/xkzf7f5f4m">Click here to take the poll</a>
+                <!-- <ul>
+                  <li>Have you ran the system tests?</li>
+                  <li>Did they all pass?</li>
+                  <li>Have you ran the getting started examples?</li>
+                  <li>Have you ever made an input file from scratch?</li>
+                  <li>Have you ever made a files file from scratch?</li>
+                </ul> -->
+              </div>
+              <iframe height="400" width="700" data-src="https://www.mentimeter.com/s/d46936cfe0b08256237cea957c3bd216/9afcd3a5a6c3" data-preload></iframe>
+              <!-- <div style='position: relative; padding-bottom: 56.25%; padding-top: 35px; height: 0; overflow: hidden;'><iframe sandbox='allow-scripts allow-same-origin allow-presentation' allowfullscreen='true' allowtransparency='true' frameborder='0' height='315' src='https://www.mentimeter.com/embed/d46936cfe0b08256237cea957c3bd216/9afcd3a5a6c3' style='position: absolute; top: 0; left: 0; width: 100%; height: 100%;' width='420'></iframe></div> -->
+            </div>
+          </section>
+
+          <section id="filesfile">
+            <div>
+            <div class="contentslide">
+                <h4>Files file</h4>
+                <ul>
+                    <li>We will see later how to make these files from scratch</li>
+                    <li>But first let's learn more about the <b>files file</b></li>
+                    <li><font color="blue">Why do we need it?</font></li>
+                    <li><font color="green">What does it do?</font></li>
+                    <li><font color="orange">What do we need to put in it?</font></li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <section id="filesfile2">
+            <div>
+            <div class="contentslide">
+                <h4>Files file</h4>
+                <div style="text-align: center;margin-top: 100px;">
+                <p><i>The files file declares the nuclear data libraries to be used in the fispact run*</i></p>
+                <p style="font-size: 32px;margin-bottom: 60px;">(*mainly -it also tells FISPACT-II the names and locations of files to read and write)</p>
+                <p><font color="red">FISPACT-II is useless without nuclear data!</font></p>
+            </div>
+            </div>
+          </section>
+
+          <section id="filesfile2">
+            <div class="contentslide">
+                <h4>Files file</h4>
+                <ul>
+                    <li>A text file</li>
+                    <li>With a list of keys and values</li>
+                    <li>Typically named 'files', 'Files' or 'FILES'</li>
+                    <li>But can be named anything e.g. files.tendl2015.run1</li>
+                    <li><font color="green">Order of paths does not matter</font></li>
+                    <li>Use linux style '/' for paths</li>
+                    <li><font color="red">Don’t use tab to indent</font> – causes parsing problems!</li>
+                </ul>
+            </div>
+          </section>
+
+          <section id="filesfile3">
+            <div class="contentslide">
+                <h4>Files file</h4>
+                <p>Nuclear data paths...</p>
+                <pre><code class="bash" data-trim data-noescape contenteditable># index of nuclides to be included
+ind_nuc /home/F-II/nuclear_data/TENDL2015data/tendl15_decay12_index
+
+# Library cross section data
+xs_endf /home/F-II/nuclear_data/TENDL2015data/tal2015-n/gxs-709
+
+# Library decay data
+dk_endf /home/F-II/nuclear_data/decay/decay_2012</code></pre>
+            </div>
+          </section>
+
+          <section id="filesfile4">
+            <div class="contentslide">
+                <h4>Files file</h4>
+                <p>Other data paths...</p>
+                <pre><code class="bash" data-trim data-noescape contenteditable># fluxes file to be read in
+fluxes fluxes
+
+# collapsed cross section data (in and out)
+collapxi COLLAPX
+collapxo COLLAPX
+
+# condensed decay and fission
+arrayx ARRAYX</code></pre>
+            </div>
+          </section>
+
+          <section id="filesfile5">
+            <div class="contentslide">
+                <h4>Files file</h4>
+                <ul>
+                    <li>Normally use about <b>12 - 16</b> key-value pairs needed</li>
+                    <li>Over 40 possible options</li>
+                    <li>See advanced usage for details on the others</li>
+                    <li>In most examples here, we will use no more than 16.</li>
+                </ul>
+            </div>
+          </section>
+
+          <section id="nucleardata1">
+            <div class="contentslide">
+                <h4>Nuclear data</h4>
+                <ul>
+                    <li>FISPACT-II can process a lot of different nuclear data libraries</li>
+                    <li>Can process both <b>ENDF-6</b> format and <b>EAF</b> format libraries</li>
+                    <li>A large number are shipped with version 4.0 already</li>
+                    <li>FISPACT-II uses group wise data, not point wise</li>
+                </ul>
+                <p style="font-size: 24px; color: red; text-align: center;">Disclamer: FISPACT-II does not hold responsibility for nuclear data errors/issues, it is simply a consumer of nuclear data</p>
+            </div>
+          </section>
+
+          <section id="nucleardata2">
+            <div class="contentslide">
+                <h4>Nuclear data: quick compare</h4>
+                <p style="font-size: 24px; text-align: center;">Reaction data</p>
+                <img data-src="../../assets/nuclear_data_compare1.png" height="520" width="1060" align="middle" style="background:none; border:none; box-shadow:none;">
+            </div>
+          </section>
+
+          <section id="nucleardata3">
+            <div class="contentslide">
+                <h4>Nuclear data: in depth compare</h4>
+                <p style="font-size: 24px; text-align: center;">Reaction data for Silver</p>
+                <img data-src="../../assets/nuclear_data_compare2.png" height="520" width="1060" align="middle" style="background:none; border:none; box-shadow:none;">
+            </div>
+          </section>
+
+          <section id="nucleardata4">
+            <div class="contentslide">
+                <h4>Decay data is different too</h4>
+                <img data-src="../../assets/half_lives_compare.png" height="520" width="840" align="middle" style="background:none; border:none; box-shadow:none;">
+            </div>
+          </section>
+
+          <section id="nucleardata5">
+            <div class="contentslide">
+              <h4>Gamma lines</h4>
+                <p style="text-align: center; font-size: 36px">JEFF3.3 vs ENDFB VII</p>
+                <img data-src="../../assets/gamma_lines_compare.png" height="360" width="460" align="left" style="background:none; border:none; box-shadow:none;">
+                <img data-src="../../assets/gamma_lines_compare2.png" height="360" width="460" align="right" style="background:none; border:none; box-shadow:none;">
+            </div>
+          </section>
+
+          <section id="nucleardata6">
+            <div class="contentslide">
+              <h4>A final note on nuclear data</h4>
+              <p style="color: blue; text-align: center">TENDL recommended</p>
+              <ul style="font-size: 36px">
+                <li>FISPACT-II development has run in parallel with that of the
+                  <b>TALYS-based Evaluated Nuclear Data Library</b> – TENDL*</li>
+                <li>It is the largest and most complete nuclear data library!</li>
+                <li><font color="red">2014</font>, <font color="blue">2015</font> and <font color="green">2017</font> included with FISPACT-II</li>
+                <li><font color="orange">2019</font> also now available</li>
+            </ul>
+            <p style="font-size: 24px; color: red; text-align: center;">* A. J. Koning, D. Rochman, et al. - https://tendl.web.psi.ch/tendl_2017/tendl2017.html
+            </p>
+          </div>
+          </section>
+
+          <section id="decaydata">
+            <div class="contentslide">
+              <h4>3850+ nuclides</h4>
+              <p>Full decay_2012 library</p>
+              <img data-src="../../assets/chartofnuclides.png" height="500" width="900" align="left" style="background:none; border:none; box-shadow:none;">
+          </div>
+          </section>
+
+          <section id="compress">
+            <div class="contentslide">
+              <h4>Compressing nuclear data</h4>
+              <ul style="font-size: 36px">
+                <li>Large nuclear data libraries (such as TENDL) can take a while to read</li>
+                <li>Sometimes up to 2 minutes for TENDL 2017</li>
+                <li>This can be improved by up to <b>60%</b> using the <font color="orange">compress_xs_endf</font> tool</li>
+                <li>Separate tool shipped with FISPACT-II</li>
+                <li>Turns nuclear data text files into binary equivalent</li>
+                <li>Note: they are <font color="red">OS dependant</font></li>
+                <li>Use <font color="green">GETXS -1</font> for binary files</li>
+            </ul>
+          </div>
+          </section>
+
+          <section id="filesfile">
+            <div class="contentslide">
+              <h4>Core nuclear data</h4>
+              <ul style="font-size: 28px">
+                <li><b>ind_nuc</b> = Index file – tells what nuclides to include in the simulation</li>
+                <li><b>xs_endf</b> = Cross section data directory (ENDF-6 format)</li>
+                <li><b>xs_endfb</b> = Cross section data directory (compressed binary format)</li>
+                <li><b>dk_endf</b> = Decay data directory (ENDF-6 format)</li>
+                <li><b>a2data</b> = file path of transportation values of radioactive material</li>
+                <li><b>clear</b> = file path of clearance values of radioactive material</li>
+                <li><b>hazards</b> = file path of ingestion and inhalation values for radionuclides</li>
+                <li><b>absorp</b> = file path of air attenuation data for nuclides</li>
+                <li><b>fy_endf</b> = neutron fission yield data directory</li>
+                <li><b>sf_endf</b> = spontaneous fission yield data directory</li>
+                <li><b>prob_tab</b> = directory path to probability table data for self shielding</li>
+            </ul>
+            <p style="font-size: 28px;color: blue">Note: For EAF keywords can differ. For example, xs_endf -> crossec</p>
+          </div>
+          </section>
+
+          <section id="filesfile2">
+            <div class="contentslide">
+              <h4>Other important data</h4>
+              <p style="font-size: 32px">As mentioned before, files file has other data</p>
+              <ul style="font-size: 36px">
+                <li><b>fluxes</b> = Defines your flux (incident particle energy spectrum) - always needed for irradiation simulations</li>
+                <li><b>collapxi</b> = if using a pre collapsed binary file, use this instead (more details later)</li>
+                <li><b>collapxo</b> = pre collapsed binary file output path</li>
+                <li><b>arrayx</b> = binary file for decay data output path</li>
+            </ul>
+          </div>
+          </section>
+
+          <section id="fluxesfile">
+            <div class="contentslide">
+              <h4>Fluxes file</h4>
+              <p style="font-size: 32px">Defines your incident particle energy spectrum</p>
+              <ul style="font-size: 32px">
+                <li>If you want to do irradiation then a fluxes file is needed</li>
+                <li>We have to tell FISPACT-II in the <b>files file</b> about the <b>fluxes file</b></li>
+                <li>The file contains the group wise data as a list of values</li>
+                <li><font color="red">Note: Data must be specified in descending order (high to low energy)!</font></li>
+                <li>Group structure must match that of nuclear data</li>
+                <ul style="font-size: 28px">
+                  <li>e.g. If using TENDL2017 then you will need your spectra defined in 709 group.</li>
+                  <li>Group convert (GRPCONVERT) can change group structure (more on this later)</li>
+                </ul>
+            </ul>
+          </div>
+          </section>
+
+          <section id="fluxesfile2">
+            <div class="contentslide">
+              <h4>Fluxes file</h4>
+              <img data-src="../../assets/groupconvertflux2.png" height="350" width="450" align="middle" style="background:none; border:none; box-shadow:none;">   
+              <img data-src="../../assets/groupconvertflux.png" height="350" width="450" align="middle" style="background:none; border:none; box-shadow:none;">   
+            </div>
+          </section>
+
+          <section id="groupstructure">
+            <div class="contentslide">
+              <p style="margin-top: 60px; margin-bottom: -10px; font-size: 28px;color:red">group 616</p>
+                <img data-src="../../assets/groupstructure616.png" height="120" width="960" align="middle" style="background:none; border:none; box-shadow:none;">
+
+              <p style="margin-top: 60px; margin-bottom: -10px;font-size: 28px;color:red">group 709</p>
+                <img data-src="../../assets/groupstructure709.png" height="120" width="960" align="middle" style="background:none; border:none; box-shadow:none;">          
+          </div>
+          </section>
+
+          <section id="groupstructure2">
+            <div class="contentslide">
+                <h4>Group structures</h4>
+                <p style="font-size: 28px;">Different group structures cover different energy regimes</p>
+                <p style="font-size: 28px;">Some libraries are provided in a given energy range best suited for certain applications</p>      
+                <p style="font-size: 28px;margin-bottom: -10px">709 group covers up to 1 GeV – most libraries shipped in this structure</p>        
+            </div>
+          <img data-src="../../assets/groupstructures.png" height="450" width="650" align="middle" style="background:none; border:none; box-shadow:none;">  
+          </section>
+
+          <section id="inputfile">
+              <div class="contentslide">
+                  <h4>Input file</h4>
+                  <p style="font-size: 32px;">The input file governs everything for the run</p>
+                  <ul style="font-size: 30px">
+                      <li>Material definition</li>
+                      <li>Irradiation schedule</li>
+                      <li>Log options</li>
+                      <li>Uncertainties</li>
+                      <li>Solver settings</li>
+                      <li>Self shielding</li>
+                      <li>Pathways</li>
+                      <li>Output types – TAB, JSON, graph files</li>
+                </ul>    
+              </div>
+            </section>
+  
+            <section id="inputfile2">
+                <div class="contentslide">
+                    <h4>Input file</h4>
+                    <ul>
+                        <li>A text file</li>
+                        <li>List of keywords and arguments</li>
+                        <li>No default name, unlike the files file</li>
+                        <li>Input file must have <font color='red'>.i</font> extension</li>
+                        <li><font color="green">Order of paths does matter</font> (unlike files file)</li>
+                        <li>Allows comments with ‘<< comment here >>’</li>
+                        <li>Note: <b>There is a limit of 120 characters per line!</b></li>
+                        <li><font color="blue">92 keywords in all!</font></li>
+                    </ul>
+                </div>
+              </section>
+
+              <section id="inputfile3">
+                  <div class="contentslide">
+                      <h4>Input file</h4>
+                      <p style="font-size: 28px">3 sections to the input file</p>
+                      <ul>
+                          <li><font color="red">Control</font> - 32 possible keywords</li>
+                          <li><font color="orange">Initialisation</font> - 64 possible keywords</li>
+                          <li><font color="green">Inventory</font> - 41 possible keywords</li>
+                      </ul>
+                      <p style="font-size: 32px">32 + 64 + 41 ≠ 92</p>
+                      <p style="font-size: 32px">Many keywords can be used in each input section,
+                          but some can only be used in one section!
+                      </p>
+                      <p style="font-size: 24px">Full list: <a href="https://fispact.ukaea.uk/wiki/FISPACT-II_keywords">https://fispact.ukaea.uk/wiki/FISPACT-II_keywords</a></p>
+                  </div>
+                </section>
+
+                <section id="inputfile4">
+                    <div class="contentslide">
+                        <h4>Simple example</h4>
+                        <pre><code class="html" data-trim data-noescape contenteditable><< CLOBBER tells fispact to overwrite >>
+<< existing files of same name >>
+CLOBBER
+<< GETXS 1 tells fispact to get the cross section>>
+<< data and do collapse >>
+GETXS 1 709
+<< GETDECAY 1 tells fispact to get the decay>>
+<< data and do condense >>
+GETDECAY 1
+<< FISPACT signals end of control section >>
+FISPACT
+* example 1
+<< END is required to signal end of input >>
+END
+* end of example
+                          </code></pre>
+                          <p style="font-size: 26px">Control only - no Initialisation or inventory sections here</p>
+                    </div>
+                  </section>
+
+                  <section id="collapse">
+                      <div class="contentslide">
+                          <h4>Collapse</h4>
+                          <p style="font-size: 36px">The nuclear data collapse with GETXS takes the extensive reaction cross section data 
+                            and probability tables for resonance self-shielding and folds (collapses) them
+                              with irradiation spectrum in fluxes. Producing a single scalar value (1-group).
+                              </p>
+                      </div>
+                    </section>
+
+                    <section id="collapse2">
+                        <div class="contentslide">
+                            <h4>Collapse</h4>
+                            <p style="font-size: 28px">Produces a binary COLLAPX file of 1-group data with uncertainties 
+                              which is given by the <b><i>collapxo</i></b> file in the files file</p>
+
+  \[\begin{aligned}
+  \bar{\sigma} &amp; = \frac{\sum^{N}_{i}\sigma_{i}\phi_{i}}{\sum^{N}_{i}\phi_{i}}
+  \end{aligned} \]
+                        </div>
+                      </section>
+
+              <section id="printlib1">
+                  <div class="contentslide">
+                      <h4>Exercise: printlib</h4>
+                      <div style="font-size: 24px">
+                        <p>Printlib 4 prints all collapsed cross sections to disk</p>
+                        <p>The cross sections are given for each reaction</p>
+                        <p>See the exercise on this.</p>
+                      </div>
+                  </div>
+                  <img data-src="../../assets/printlib.png" height="450" width="600" align="middle" style="background:none; border:none; box-shadow:none;">
+                </section>
+
+                <section id="printlib2">
+                    <div class="contentslide">
+                        <h4>Exercise: printlib</h4>
+                        <div style="font-size: 24px">
+                          <p>Can actually calculate this by hand</p>
+                          <p>Getting the group wise XS data can be done using another tool with FISPACT-II <font color="orange">extract_xs_endf</font> </p>
+                        </div>
+                    </div>
+                    <img data-src="../../assets/printlib2.png" height="450" width="700" align="middle" style="background:none; border:none; box-shadow:none;">
+                  </section>
+
+                          <section id="collapseandcondense">
+                              <div class="contentslide">
+                                  <h4>Collapse and condense</h4>
+                                  <div style="font-size: 32px">
+                                    <p>Common practice is to separate out collapse and condense.
+                                    <p><font color="blue">collapse.i</font> input file – GETXS 1 <group></p>
+                                    <p><font color="green">condese.i</font> input file – GETDECAY 1</p>
+                                    <p>Computationally expensive to do these processes.
+                                        If flux is not changing, then no need to redo collapse.
+                                        We just did the collapse in the previous example.
+                                        </p>
+                                  </div>
+                              </div>
+                              <pre><code class="bash" data-trim data-noescape contenteditable>[tom@mac:~/exercises/basic/inventory]$ $FISPACT collapse
+[tom@mac:~/exercises/basic/inventory]$ $FISPACT condense
+[tom@mac:~/exercises/basic/inventory]$ $FISPACT input1
+[tom@mac:~/exercises/basic/inventory]$ $FISPACT input2                                  
+                                </code></pre>
+                            
+                            </section>
+  
+            <section id="condense">
+                <div class="contentslide">
+                    <h4>Condense</h4>
+                    <p style="font-size: 36px">The nuclear data condense via GETDECAY produces 
+                      a binary ARRAYX file from the extensive decay and fission yield data</p>
+                      <p style="font-size: 32px">May also require an irradiation spectrum (fluxes)
+                          to calculate spectrum-dependent fission yields
+                          but is not normally the case
+                          </p>
+                </div>
+              </section>
+
+              <section id="collapsesummary">
+                  <div class="contentslide">
+                      <h4>Collapse summary</h4>
+                  </div>
+                  <img data-src="../../assets/collapse.png" height="450" width="800" align="middle" style="background:none; border:none; box-shadow:none;">
+                </section>
+
+                <section id="collapsesummary">
+                    <div class="contentslide">
+                        <h4>Condense summary</h4>
+                    </div>
+                    <img data-src="../../assets/collapse.png" height="450" width="800" align="middle" style="background:none; border:none; box-shadow:none;">
+                  </section>
+                  
+                  <section id="inventorysummary">
+                      <div class="contentslide">
+                          <h4>Inventory summary</h4>
+                      </div>
+                      <img data-src="../../assets/inventory.png" height="450" width="800" align="middle" style="background:none; border:none; box-shadow:none;">
+                    </section>
+  
+            <section id="introsummary">
+                <div class="contentslide">
+                    <h4>Summary so far</h4>
+                    <ul style="font-size: 30px">
+                        <li>What FISPACT-II is</li>
+                        <li>Some of what FISPACT-II can do</li>
+                        <li>What files FISPACT-II needs</li>
+                        <ul style="font-size: 26px">
+                          <li>Files file</li>
+                          <li>Fluxes file</li>
+                          <li>Input file</li>
+                        </ul>
+                        <li>How to run FISPACT-II</li>
+                      </ul>    
+                      <p style="font-size: 32px">In the basic exercises we will use the fluxes and nuclear data to 
+                        calculate all of the effective cross sections and prepare the decay data for time-dependent simulations.
+                        </p>
+                        <p style="font-size: 32px">However, all of this is not very interesting. No actual irradiation yet.</p>
+                </div>
+              </section>
+              
+              <section id="workedexample">
+                  <div class="contentslide">
+                      <h4>Worked example</h4>
+                      <p>FNS Inconel (from getting started)</p>
+                      <p>Contains 4 input files</p>
+                      <ul>
+                          <li>collapse.i</li>
+                          <li>condense.i</li>
+                          <li>printlib.i</li>
+                          <li><font color="green">inventory.i</font></li>
+                      </ul>
+                      <p>First 3 have been covered, focus on the inventory run</p>
+                  </div>
+                </section>
+              
+                <section id="workedexample">
+                    <div class="contentslide">
+                        <h4>Worked example - control</h4>
+                    </div>
+                    <pre><code class="html" data-trim data-noescape contenteditable><< Overwrite any existing output file >>
+CLOBBER
+<< we also want a JSON output file >>
+JSON
+<< read in COLLAPX file>>
+GETXS 0
+<< read in ARRAYX file>>
+GETDECAY 0
+<< end of control section >>
+FISPACT
+* FNS 5 Minutes Inconel-600                                                
+                      </code></pre>
+                  </section>
+              
+                  <section id="workedexample2">
+                      <div class="contentslide">
+                          <h4>Worked example - initial conditions I</h4>
+                      </div>
+                      <pre><code class="html" data-trim data-noescape contenteditable><< Inconel 600 with density of 8.42 g/cc >>
+DENSITY 8.42
+<< 1 gram  with 4 elements >>
+MASS 1.0E-3 4
+<< 75.82% Ni >> 
+NI  75.82
+<< 15.97% Cr >>
+CR  15.97
+<< 7.82% Fe >>
+FE   7.82
+<< 0.39% Mn >> 
+MN   0.39</code></pre>
+                    </section>
+              
+                    <section id="workedexample3">
+                        <div class="contentslide">
+                            <h4>Worked example - initial conditions II</h4>
+                        </div>
+                        <pre><code class="html" data-trim data-noescape contenteditable><< ignore nuclides with inventory < 1000 atoms >>
+MIND 1E3
+<< create gnuplot data and file >>
+GRAPH 1 2 1 3
+<< pathways analysis >>
+UNCERTAINTY 2
+<< output half lives >>
+HALF 
+<< output ingestion and inhalation >>
+HAZARDS</code></pre>
+                      </section>
+              
+                      <section id="workedexample4">
+                          <div class="contentslide">
+                              <h4>Worked example - irradiation phase</h4>
+                          </div>
+                          <pre><code class="html" data-trim data-noescape contenteditable><< irradiate material at 1.116e10 n/cm2/s >>
+FLUX 1.116E+10
+<< initial inventory (t=0) >>
+ATOMS
+<< want output after 5 minutes irradiation >>
+TIME 5.0 MINS
+<< solves rate equation matrix and >>
+<< outputs initial inventory at time=5 mins>>
+ATOMS
+</code></pre>
+<p style="font-size: 28px">Note: Without either ATOMS, STEP, or SPECTRUM, nothing will be calculated!
+    For less verbose output, use STEP, instead of ATOMS. 
+    </p>
+                        </section>
+
+                        <section id="workedexample5">
+                            <div class="contentslide">
+                                <h4>Worked example - cooling phase</h4>
+                                <p style="font-size: 32px"></p>
+                            </div>
+                            <pre><code class="html" data-trim data-noescape contenteditable><< turn flux off - decay only >>
+FLUX 0.
+<< tells FISPACT-II we are cooling >>
+ZERO
+<< cooling time intervals >> 
+<< 38 seconds after irradiation ended >> 
+TIME    36 ATOMS
+<< 15 seconds after previous time >> 
+TIME    15 ATOMS
+<< 16 seconds after previous time >> 
+TIME    16 ATOMS
+...
+<< end of input file >> 
+END
+* END</code></pre>
+                    <p style="font-size: 28px">Note: Times are <b>intervals</b>. It is time difference not cumulative time</p>
+                  </section>
+
+                  <section id="workedexample6">
+                      <div class="contentslide">
+                          <h4>Worked example - graph outputs</h4>
+                      </div>
+                      <img data-src="../../assets/inconel1.png" height="400" width="450" align="middle" style="background:none; border:none; box-shadow:none;">
+                      <img data-src="../../assets/inconel2.png" height="400" width="450" align="middle" style="background:none; border:none; box-shadow:none;">
+                    </section>
+
+            <section id="workedexamplesummary">
+                <div class="contentslide">
+                    <h4>Worked example summary</h4>
+                    <div  style="font-size: 32px">
+                    <p>Able to irradiate a material and generate graphs</p>
+                    <p>But what if we want custom graphs?</p>
+                    <ul>
+                        <li>Generated graphs and plots are good, but limited</li>
+                        <li>We can look and copy values from the output file, but difficult for big simulations</li>
+                        <li>Output file can be tricky to parse</li>
+                        <li>Other output files – TAB and JSON to help file reading issues</li>
+                        <li>FISPACT-II official parser - pypact</li>
+                    </ul>
+                  </div>
+                </div>
+              </section>
+
+              <section id="pypact">
+                  <div class="contentslide">
+                      <h4>Pypact</h4>
+                      <div style="font-size: 32px">
+                      <p>Can make parsing legacy FISPACT-II files easy - python3 package</p>
+                      <img data-src="../../assets/gs_animation.gif" height="300" width="400" align="middle" style="background:none; border:none; box-shadow:none;">
+                      <img data-src="../../assets/periodictableanimation.gif" height="300" width="550" align="middle" style="background:none; border:none; box-shadow:none;">
+                  </div>
+                </section>
+
+      </div>
+    </div>
+      <!-- End slides -->
+    </div>
+    <!-- End reveal -->
+
+    <script src="../../lib/js/head.min.js"></script>
+    <script src="../../js/reveal.js"></script>
+
+    <script>
+      var link = document.createElement("link");
+      link.rel = "stylesheet";
+      link.type = "text/css";
+      link.href = window.location.search.match(/print-pdf/gi)
+        ? "css/print/pdf.css"
+        : "css/print/paper.css";
+      document.getElementsByTagName("head")[0].appendChild(link);
+    </script>
+
+    <script>
+      // Configuration for Reveal
+      Reveal.initialize({
+        // Display presentation control arrows
+        controls: true,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: true,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: "bottom-right",
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: "faded",
+
+        // Display a presentation progress bar
+        progress: false,
+
+        // Set default timing of 2 minutes per slide
+        defaultTiming: 120,
+
+        // Display the page number of the current slide
+        slideNumber: "c",
+
+        // Push each slide change to the browser history
+        history: false,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Vertical centering of slides
+        center: true,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (video/audio/iframe)
+        // - null: Media will only autoplay if data-autoplay is present
+        // - true: All media will autoplay, regardless of individual setting
+        // - false: No media will autoplay, regardless of individual setting
+        autoPlayMedia: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: Reveal.navigateNext,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // Hides the address bar on mobile devices
+        hideAddressBar: true,
+
+        // Opens links in an iframe preview overlay
+        // Add `data-preview-link` and `data-preview-link="false"` to customise each link
+        // individually
+        previewLinks: false,
+
+        // Transition style
+        transition: "slide", // none/fade/slide/convex/concave/zoom
+
+        // Transition speed
+        transitionSpeed: "default", // default/fast/slow
+
+        // Transition style for full page slide backgrounds
+        backgroundTransition: "fade", // none/fade/slide/convex/concave/zoom
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Parallax background image
+        parallaxBackgroundImage: "", // e.g. "'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg'"
+
+        // Parallax background size
+        parallaxBackgroundSize: "", // CSS syntax, e.g. "2100px 900px"
+
+        // Number of pixels to move the parallax background per slide
+        // - Calculated automatically unless specified
+        // - Set to 0 to disable movement along an axis
+        parallaxBackgroundHorizontal: null,
+        parallaxBackgroundVertical: null,
+
+        // The display mode that will be used to show slides
+        display: "block",
+
+        math: {
+          mathjax:
+            "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js",
+          config: "TeX-AMS_HTML-full", // See http://docs.mathjax.org/en/latest/config-files.html
+        },
+
+        // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+          {
+            src: "../../plugin/markdown/marked.js",
+            condition: function () {
+              return !!document.querySelector("[data-markdown]");
+            },
+          },
+          {
+            src: "../../plugin/markdown/markdown.js",
+            condition: function () {
+              return !!document.querySelector("[data-markdown]");
+            },
+          },
+          {
+            src: "../../plugin/highlight/highlight.js",
+            async: true,
+            callback: function () {
+              hljs.initHighlightingOnLoad();
+            },
+          },
+          { src: "../../plugin/math/math.js", async: true },
+        ],
+      });
+    </script>
+  </body>
+</html>
